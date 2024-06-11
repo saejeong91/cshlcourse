@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+_book
+_bookdown_files
+_main.Rmd
+_main_files
+.DS_Store
+.Rdata
+.httr-oauth
+.quarto

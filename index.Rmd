@@ -1,0 +1,200 @@
+---
+title: "Statistical Analysis of Genome Scale Data 2024"
+author: "Leonardo Collado-Torres"
+site: bookdown::bookdown_site
+apple-touch-sin: "icon_192.png"
+apple-touch-icon-size: 192
+favicon: "icon_32.png"
+github-repo: "lcolladotor/cshl_rstats_genome_scale_2024"
+documentclass: book
+output:
+  bookdown::gitbook:
+    includes:
+      after_body: map_and_ga.html
+    css: "style.css"
+    
+---
+
+# Overview {-}
+
+Here you can find the files for the June 2024 _Statistical Analysis of Genome Scale Data_ course at [CSHL](https://meetings.cshl.edu/courses.aspx?course=C-DATA&year=24) portion taught by Leo and his team (June 9-11).
+
+<!-- See [CSHLData2023](https://seandavi.github.io/CSHLData2023/) for a list of all instructors and related materials. -->
+
+Instructor:
+
+* [**Leonardo Collado-Torres**](http://lcolladotor.github.io/), [Twitter](https://twitter.com/lcolladotor)
+
+Teach assistants:
+
+* [Daianna González Padilla](https://daianna21.github.io/), [Twitter](https://twitter.com/daianna_glez)
+* [Melissa Mayén Quiroz](http://Melii99.github.io/), [Twitter](http://twitter.com/meli_mq99)
+
+
+## Download course materials {-}
+
+Download the materials for this course with `usethis::use_course('lcolladotor/cshl_rstats_genome_scale_2024')` or view online at [**lcolladotor.github.io/cshl_rstats_genome_scale_2024**](http://lcolladotor.github.io/cshl_rstats_genome_scale_2024). This command downloads a static version of the course materials. 
+
+If you want to be able to easily download updates, we recommend using `Git`. [_Happy Git and GitHub for the useR_](https://happygitwithr.com/) is great for getting your computer ready to use `Git` and `GitHub`. If you already have a `GitHub` account, you can instead use this command to download the course:
+
+```bash
+## Download it the first time
+git clone https://github.com/lcolladotor/cshl_rstats_genome_scale_2024.git
+
+## To update the contents, use:
+cd cshl_rstats_genome_scale_2024
+git pull
+```
+
+Or you could use the [GitHub Desktop application](x-github-client://openRepo/https://github.com/lcolladotor/cshl_rstats_genome_scale_2024).
+
+## Code of Conduct {-}
+
+We'll follow the CSHL code of conduct as well as version 1.2.0 of the Bioconductor code of conduct [bioconductor.github.io/bioc_coc_multilingual/](https://bioconductor.github.io/bioc_coc_multilingual/). 
+
+For reporting any violations of the code of conduct, report them to the Instructor and/or Course Coordinators.
+
+## Course Schedule {-}
+
+_Local times in US Eastern_
+
+See [CSHLData2024](https://bit.ly/cshldata2024) for the detailed schedule.
+  
+## External links {-}
+
+* [CSHL course](https://meetings.cshl.edu/courses.aspx?course=C-DATA&year=24)
+* [GitHub source code](https://github.com/lcolladotor/cshl_rstats_genome_scale_2024)
+* [Slack](https://cshldata-2024.slack.com)
+* [LieberInstitute/template_project](https://github.com/LieberInstitute/template_project)
+* [LIBD rstats club](http://research.libd.org/rstatsclub/): check the [public schedule](https://docs.google.com/spreadsheets/d/1is8dZSd0FZ9Qi1Zvq1uRhm-P1McnJRd_zxdAfCRoMfA/edit?usp=sharing)
+  
+
+## Course Prerequisites {-}
+
+Install R 4.4.x from [CRAN](https://cran.r-project.org/) then install the following R packages:
+
+```{r install, eval = FALSE}
+## For installing Bioconductor packages
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
+
+## Install required packages
+BiocManager::install(
+    c(
+        "usethis", ## Utilities
+        "BiocFileCache",
+        "RefManageR",
+        "gitcreds",
+        "gert",
+        "gh",
+        "here",
+        "Hmisc",
+        "biocthis",
+        "lobstr",
+        "postcards",
+        "scater",
+        "sessioninfo",
+        "stringr",
+        "SummarizedExperiment", ## Main containers / vis
+        "iSEE",
+        "edgeR", ## RNA-seq
+        "ExploreModelMatrix",
+        "limma",
+        "smokingMouse",
+        "recount3",
+        "rlang",
+        "scRNAseq",
+        "pheatmap", ## Visualization
+        "ggplot2",
+        "ggrepel",
+        "patchwork",
+        "RColorBrewer",
+        "ComplexHeatmap",
+        "cowplot",
+        "Polychrome",
+        "spatialLIBD", ## Advanced
+        "variancePartition"
+    )
+)
+```
+
+You will also need to install [RStudio](https://rstudio.com/products/rstudio/download/#download) version 2024.04.0+735 or newer.
+
+## R session information {-}
+
+Details on the R version used for making this book. The source code is available at [`lcolladotor/cshl_rstats_genome_scale_2024`](https://github.com/lcolladotor/cshl_rstats_genome_scale_2024).
+
+```{r session_packages, eval = TRUE, message = FALSE}
+## Load the package at the top of your script
+library("sessioninfo")
+
+## Utilities
+library("BiocFileCache")
+library("BiocStyle")
+library("biocthis")
+library("gitcreds")
+library("gert")
+library("gh")
+library("here")
+library("lobstr")
+library("postcards")
+library("usethis")
+library("sessioninfo")
+
+## Data
+library("smokingMouse")
+library("scRNAseq")
+
+## Main containers / vis
+library("SummarizedExperiment")
+library("iSEE")
+
+## RNA-seq
+library("edgeR")
+library("ExploreModelMatrix")
+library("limma")
+library("recount3")
+
+## QCA
+library("scater")
+
+## Variance Partition
+library("variancePartition")
+
+## Visualization: plots & text
+library("ComplexHeatmap")
+library("ggplot2")
+library("patchwork")
+library("pheatmap")
+library("RColorBrewer")
+library("Hmisc")
+library("stringr")
+library("cowplot")
+library("rlang")
+library("ggrepel")
+library("Polychrome")
+
+## Spatial transcriptomics
+library("spatialLIBD")
+```
+
+```{r session_info}
+## Reproducibility information
+options(width = 120)
+session_info()
+proc.time()
+```
+
+System `curl` version:
+
+```{r "check_curl"}
+curl::curl_version()
+```
+
+
+This interactive book was last updated at `r Sys.time()`.
+
+## License  {-}
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
