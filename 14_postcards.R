@@ -107,11 +107,11 @@ usethis::edit_git_config() # opens the global .gitconfig file
 usethis::use_git()
 ##
 ## ## Connect your local Git repository with GitHub servers
-## usethis::use_github()
+usethis::use_github()
 
 
 ## ----gh_whoami, eval=FALSE------------------------------------------------------------
-## gh::gh_whoami()
+gh::gh_whoami()
 
 
 ## ----git_commands, eval=FALSE---------------------------------------------------------
