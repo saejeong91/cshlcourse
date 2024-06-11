@@ -86,7 +86,7 @@ usethis::create_github_token() # redirects to GitHub where you'll choose a speci
 
 
 ## ----gitcreds, eval=FALSE-------------------------------------------------------------
-gitcreds::gitcreds_set("http://github.com/pkong")
+gitcreds::gitcreds_set()
 # and then here you place the token (NOT your GitHub password!!!)
 
 
